@@ -19,7 +19,10 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, widows-latest]
-        java: [ 8, 11 ]
+        java: [ 8 ]
+        include:
+        - os: ubuntu-latest
+          java: 11
     name: Build with Java ${{ matrix.java }} on ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
