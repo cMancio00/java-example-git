@@ -15,11 +15,12 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        os: [ubuntu-latest, macos-latest, widows-latest]
         java: [ 8, 11 ]
-    name: Build with Java ${{ matrix.java }}
+    name: Build with Java ${{ matrix.java }} on ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK ${{ matrix.java }}
