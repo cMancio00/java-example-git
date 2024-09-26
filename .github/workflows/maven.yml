@@ -41,7 +41,7 @@ jobs:
         clean verify
         surefire-report:report-only site:site -DgenerateReports=false
     - name: Archive JUnit report
-        uses: actions/upload-artifact@v4
-        with:
-          name: surefire-report-jdk-${{ matrix.java }}
-          path: "**/target/site"
+      uses: actions/upload-artifact@v4
+      with:
+        name: surefire-report-jdk-${{ matrix.java }}
+        path: "**/target/site"
